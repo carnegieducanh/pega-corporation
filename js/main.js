@@ -44,7 +44,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
   /* ---- full-page section navigation (JS-driven, no native scroll) ---- */
   var sideNavItems = document.querySelectorAll(".side-nav li");
+  var sideNavIndicator = document.querySelector(".side-nav-indicator");
   var sectionTint = document.getElementById("sectionTint");
+  var introContent = document.getElementById("introContent");
   var container = document.getElementById("snapContainer");
   var sectionEls = Array.prototype.slice.call(container.querySelectorAll(".section"));
   var currentIndex = 0;
@@ -63,14 +65,38 @@ document.addEventListener("DOMContentLoaded", function () {
     var id = target.id;
     var theme = target.dataset.navTheme;
 
+    var enteringItem = sideNavItems[index];
+    var previousActiveItem = document.querySelector(".side-nav li.active");
+    var previousIndex = previousActiveItem ? Array.prototype.indexOf.call(sideNavItems, previousActiveItem) : -1;
+
+    if (enteringItem && previousIndex !== -1 && previousIndex !== index) {
+      var enteringDot = enteringItem.querySelector(".dot");
+      var neighborItem = sideNavItems[index + (index > previousIndex ? -1 : 1)];
+      if (enteringDot && neighborItem) {
+        var shift = neighborItem.offsetTop - enteringItem.offsetTop;
+        enteringDot.style.setProperty("--exit-shift", shift + "px");
+      }
+    }
+
     sideNavItems.forEach(function (item) {
       item.classList.toggle("active", item.dataset.target === id);
     });
+
+    if (sideNavIndicator && sideNavItems[index]) {
+      var activeItem = sideNavItems[index];
+      var activeLabel = activeItem.querySelector(".side-nav-label");
+      var indicatorLabel = sideNavIndicator.querySelector(".side-nav-indicator-label");
+      if (indicatorLabel && activeLabel) {
+        indicatorLabel.textContent = activeLabel.textContent;
+      }
+      sideNavIndicator.style.transform = "translateY(" + activeItem.offsetTop + "px)";
+    }
 
     document.body.classList.toggle("theme-dark", theme === "dark");
     document.body.dataset.activeSection = id;
 
     if (sectionTint) sectionTint.classList.toggle("active", id === "home");
+    if (introContent) introContent.classList.toggle("leaving", id !== "intro");
   }
 
   function goToSection(index) {
