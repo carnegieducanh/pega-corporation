@@ -57,10 +57,26 @@ body[data-active-section="impact"] .bg-video {
   opacity: .3;
 }
 
+/* ---------- Section background tint (decoupled from content slide) ---------- */
+.section-tint {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  background: rgba(9, 22, 43, .33);
+  opacity: 0;
+  transition: opacity .3s ease;
+  pointer-events: none;
+}
+
+.section-tint.active {
+  opacity: 1;
+}
+
 /* ---------- Full-page JS-driven section transition ---------- */
 .snap-container {
   height: 100vh;
   position: relative;
+  z-index: 2;
   overflow: hidden;
 }
 
@@ -366,7 +382,7 @@ body.theme-dark .side-nav { color: var(--ink); }
 
 /* ================= HOME ================= */
 .home {
-  background: rgba(9, 22, 43, .33);
+  background: transparent;
   display: flex;
 }
 

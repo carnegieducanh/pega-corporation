@@ -44,6 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   /* ---- full-page section navigation (JS-driven, no native scroll) ---- */
   var sideNavItems = document.querySelectorAll(".side-nav li");
+  var sectionTint = document.getElementById("sectionTint");
   var container = document.getElementById("snapContainer");
   var sectionEls = Array.prototype.slice.call(container.querySelectorAll(".section"));
   var currentIndex = 0;
@@ -68,6 +69,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     document.body.classList.toggle("theme-dark", theme === "dark");
     document.body.dataset.activeSection = id;
+
+    if (sectionTint) sectionTint.classList.toggle("active", id === "home");
   }
 
   function goToSection(index) {
