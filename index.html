@@ -88,54 +88,52 @@
     <div class="home-content">
 
       <div class="gallery">
-        <div class="gallery-top">
 
-          <div class="tile tile-slider" id="videoSlider">
-            <video class="slide active" autoplay muted loop playsinline data-index="0"><source src="assets/home-video-main1.mp4" type="video/mp4"></video>
-            <video class="slide" muted loop playsinline data-index="1"><source src="assets/home-video-main2.mp4" type="video/mp4"></video>
-            <video class="slide" muted loop playsinline data-index="2"><source src="assets/home-video-main3.mp4" type="video/mp4"></video>
-            <div class="slider-dots">
-              <button type="button" class="active" data-slide="0" aria-label="Slide 1"></button>
-              <button type="button" data-slide="1" aria-label="Slide 2"></button>
-              <button type="button" data-slide="2" aria-label="Slide 3"></button>
-            </div>
+        <div class="tile tile-slider" id="videoSlider">
+          <video class="slide active" autoplay muted loop playsinline data-index="0"><source src="assets/home-video-main1.mp4" type="video/mp4"></video>
+          <video class="slide" muted loop playsinline data-index="1"><source src="assets/home-video-main2.mp4" type="video/mp4"></video>
+          <video class="slide" muted loop playsinline data-index="2"><source src="assets/home-video-main3.mp4" type="video/mp4"></video>
+          <div class="slider-dots">
+            <button type="button" class="active" data-slide="0" aria-label="Slide 1"></button>
+            <button type="button" data-slide="1" aria-label="Slide 2"></button>
+            <button type="button" data-slide="2" aria-label="Slide 3"></button>
           </div>
-
-          <a href="#" class="tile tile-card">
-            <video autoplay muted loop playsinline poster="assets/home-bg-video2.png"><source src="assets/home-video2.mp4" type="video/mp4"></video>
-            <span class="tile-label">Server</span>
-          </a>
-
-          <a href="#" class="tile tile-card">
-            <video autoplay muted loop playsinline poster="assets/home-bg-video3.jpg"><source src="assets/home-video3.mp4" type="video/mp4"></video>
-            <span class="tile-label">5G</span>
-          </a>
-
-          <div class="gallery-stack">
-            <a href="#" class="tile tile-card">
-              <video autoplay muted loop playsinline poster="assets/home-bg-video4.jpg"><source src="assets/home-video4.mp4" type="video/mp4"></video>
-              <span class="tile-label">IOT &amp;<br>Smart application</span>
-            </a>
-            <a href="#" class="tile tile-card">
-              <video autoplay muted loop playsinline poster="assets/home-bg-video5.jpg"><source src="assets/home-video5.mp4" type="video/mp4"></video>
-              <span class="tile-label">EV</span>
-            </a>
-          </div>
-
         </div>
 
-        <div class="gallery-bottom">
-          <div class="tile-spacer"></div>
+        <a href="#" class="tile tile-card tile-server">
+          <img class="tile-img" src="assets/home-bg-server.png" alt="Server">
+          <video class="tile-video" muted loop playsinline preload="metadata"><source src="assets/home-video2.mp4" type="video/mp4"></video>
+          <span class="tile-label">Server</span>
+        </a>
 
-          <a href="#" class="tile tile-card tile-news">
-            <span class="tile-label">News</span>
+        <a href="#" class="tile tile-card tile-5g">
+          <img class="tile-img" src="assets/home-bg-5G.jpg" alt="5G">
+          <video class="tile-video" muted loop playsinline preload="metadata"><source src="assets/home-video3.mp4" type="video/mp4"></video>
+          <span class="tile-label">5G</span>
+        </a>
+
+        <div class="gallery-stack">
+          <a href="#" class="tile tile-card">
+            <img class="tile-img" src="assets/home-bg-IOT.jpg" alt="IOT &amp; Smart application">
+            <video class="tile-video" muted loop playsinline preload="metadata"><source src="assets/home-video4.mp4" type="video/mp4"></video>
+            <span class="tile-label">IOT &amp;<br>Smart application</span>
           </a>
-
-          <a href="#" class="tile tile-card tile-pegaverse">
-            <video autoplay muted loop playsinline poster="assets/home-bg-video7.png"><source src="assets/home-video6.mp4" type="video/mp4"></video>
-            <span class="tile-pegaverse-logo">PEGA<em>V</em>ERSE</span>
+          <a href="#" class="tile tile-card">
+            <img class="tile-img" src="assets/home-bg-EV.jpg" alt="EV">
+            <video class="tile-video" muted loop playsinline preload="metadata"><source src="assets/home-video5.mp4" type="video/mp4"></video>
+            <span class="tile-label">EV</span>
           </a>
         </div>
+
+        <a href="#" class="tile tile-card tile-news" style="background-image:url('assets/home-bg-NEWS.jpg')">
+          <span class="tile-label">News</span>
+        </a>
+
+        <a href="#" class="tile tile-card tile-pegaverse">
+          <img class="tile-img" src="assets/home-bg-PEGAVERSE.png" alt="Pegaverse">
+          <video class="tile-video" muted loop playsinline preload="metadata"><source src="assets/home-video6.mp4" type="video/mp4"></video>
+          <span class="tile-pegaverse-logo">PEGA<em>V</em>ERSE</span>
+        </a>
       </div>
 
       <a href="#" class="navigate-link">Navigate the future <span class="arrow">›</span></a>

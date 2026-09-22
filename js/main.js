@@ -245,4 +245,23 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     });
   }
+
+  /* ---- gallery tiles: play video only while hovered ---- */
+  document.querySelectorAll(".tile-card").forEach(function (card) {
+    var video = card.querySelector(".tile-video");
+    if (!video) return;
+
+    function playVideo() {
+      video.currentTime = 0;
+      video.play();
+    }
+    function stopVideo() {
+      video.pause();
+    }
+
+    card.addEventListener("mouseenter", playVideo);
+    card.addEventListener("mouseleave", stopVideo);
+    card.addEventListener("focus", playVideo);
+    card.addEventListener("blur", stopVideo);
+  });
 });
