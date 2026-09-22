@@ -1,4 +1,18 @@
 document.addEventListener("DOMContentLoaded", function () {
+  /* ---- mobile: split footer into its own full-page section ---- */
+  if (window.matchMedia("(max-width: 768px)").matches) {
+    var impactSection = document.getElementById("impact");
+    var footerEl = document.querySelector(".footer");
+    if (impactSection && footerEl) {
+      var footerSection = document.createElement("section");
+      footerSection.className = "section footer-section";
+      footerSection.id = "footer";
+      footerSection.dataset.navTheme = "dark";
+      footerSection.appendChild(footerEl);
+      impactSection.insertAdjacentElement("afterend", footerSection);
+    }
+  }
+
   /* ---- search toggle ---- */
   var searchTool = document.querySelector(".search-tool");
   var searchBtn = document.getElementById("searchBtn");
@@ -247,28 +261,32 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  /* ---- footer condensed tabs (iPad) ---- */
+  /* ---- footer condensed tabs (iPad + mobile accordion) ---- */
   var footerCols = document.querySelectorAll(".footer-columns > .footer-col:not(.footer-brands)");
   if (footerCols.length) {
-    footerCols[0].classList.add("active");
+    if (window.matchMedia("(min-width: 769px) and (max-width: 1024px)").matches) {
+      footerCols[0].classList.add("active");
+    }
     footerCols.forEach(function (col) {
       var heading = col.querySelector("h3");
       if (!heading) return;
       heading.addEventListener("click", function () {
+        var wasActive = col.classList.contains("active");
         footerCols.forEach(function (c) {
           c.classList.remove("active");
         });
-        col.classList.add("active");
+        if (!wasActive) col.classList.add("active");
       });
     });
   }
 
-  /* ---- gallery tiles: play video only while hovered ---- */
+  /* ---- gallery tiles: play video only while hovered (desktop only) ---- */
   document.querySelectorAll(".tile-card").forEach(function (card) {
     var video = card.querySelector(".tile-video");
     if (!video) return;
 
     function playVideo() {
+      if (!window.matchMedia("(min-width: 1201px)").matches) return;
       video.currentTime = 0;
       video.play();
     }
