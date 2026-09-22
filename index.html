@@ -1,252 +1,345 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PEGATRON Corporation</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
-<link rel="stylesheet" href="css/style.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PEGATRON Corporation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Figtree:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <video class="bg-video" id="bgVideo" autoplay muted loop playsinline poster="assets/home-bg-banner.jpg">
+      <source src="assets/introl-video.mp4" type="video/mp4" />
+    </video>
 
-<video class="bg-video" id="bgVideo" autoplay muted loop playsinline poster="assets/home-bg-banner.jpg">
-  <source src="assets/introl-video.mp4" type="video/mp4">
-</video>
+    <div class="section-tint" id="sectionTint" aria-hidden="true"></div>
 
-<div class="section-tint" id="sectionTint" aria-hidden="true"></div>
-
-<div class="intro-content" id="introContent">
-  <h1>Innovative mindset,<br>striving for excellence.</h1>
-  <div class="intro-scroll" aria-hidden="true">
-    <span class="intro-scroll-text">Scroll</span>
-    <span class="intro-scroll-arrow"></span>
-  </div>
-</div>
-
-<header class="header" id="header">
-  <div class="header-inner">
-    <a href="#intro" class="logo">
-      <img src="assets/Logo_light.png" alt="PEGATRON" class="logo-light">
-      <img src="assets/Logo_dark.png" alt="PEGATRON" class="logo-dark">
-    </a>
-
-    <nav class="nav" id="nav">
-      <ul>
-        <li><a href="#">ABOUT</a></li>
-        <li><a href="#">PRODUCT &amp; SERVICE</a></li>
-        <li><a href="#">INVESTORS</a></li>
-        <li><a href="#">SUSTAINABILITY</a></li>
-        <li><a href="#">CAREERS</a></li>
-      </ul>
-      <div class="nav-lang">
-        <button type="button" class="nav-lang-btn active">EN</button>
-        <button type="button" class="nav-lang-btn">繁中</button>
+    <div class="intro-content" id="introContent">
+      <h1>Innovative mindset,<br />striving for excellence.</h1>
+      <div class="intro-scroll" aria-hidden="true">
+        <span class="intro-scroll-text">Scroll</span>
+        <span class="intro-scroll-arrow"></span>
       </div>
-    </nav>
-
-    <div class="header-tools">
-      <div class="search-tool">
-        <button class="icon-btn search-btn" id="searchBtn" aria-label="Search" aria-expanded="false">
-          <i class="ri-search-line"></i>
-        </button>
-        <form class="search-form" id="searchForm">
-          <input type="text" placeholder="Search..." aria-label="Search keyword">
-        </form>
-      </div>
-
-      <div class="lang-tool">
-        <button class="lang-btn" id="langBtn" aria-expanded="false">
-          <i class="ri-global-line"></i>
-          EN
-          <i class="ri-arrow-down-s-line chevron"></i>
-        </button>
-        <ul class="lang-menu" id="langMenu">
-          <li><button type="button" class="active">EN</button></li>
-          <li><button type="button">繁中</button></li>
-        </ul>
-      </div>
-
-      <button class="menu-btn" id="menuBtn" aria-label="Menu" aria-expanded="false">
-        <span></span><span></span>
-      </button>
     </div>
-  </div>
-</header>
 
-<nav class="side-nav" id="sideNav" aria-label="Section navigation">
-  <ul>
-    <span class="side-nav-indicator" aria-hidden="true">
-      <span class="side-nav-indicator-label"></span>
-      <span class="side-nav-indicator-dot"></span>
-    </span>
-    <li data-target="intro" class="active"><span class="side-nav-label">Intro</span><span class="dot"></span></li>
-    <li data-target="home"><span class="side-nav-label">Home</span><span class="dot"></span></li>
-    <li data-target="impact"><span class="side-nav-label">Impact</span><span class="dot"></span></li>
-  </ul>
-</nav>
+    <header class="header" id="header">
+      <div class="header-inner">
+        <a href="#intro" class="logo">
+          <img src="assets/Logo_light.png" alt="PEGATRON" class="logo-light" />
+          <img src="assets/Logo_dark.png" alt="PEGATRON" class="logo-dark" />
+        </a>
 
-<main class="snap-container" id="snapContainer">
-
-  <section class="section intro" id="intro" data-nav-theme="light"></section>
-
-  <section class="section home" id="home" data-nav-theme="light">
-    <div class="home-content">
-
-      <div class="gallery">
-
-        <div class="tile tile-slider" id="videoSlider">
-          <video class="slide active" autoplay muted loop playsinline data-index="0"><source src="assets/home-video-main1.mp4" type="video/mp4"></video>
-          <video class="slide" muted loop playsinline data-index="1"><source src="assets/home-video-main2.mp4" type="video/mp4"></video>
-          <video class="slide" muted loop playsinline data-index="2"><source src="assets/home-video-main3.mp4" type="video/mp4"></video>
-          <div class="slider-dots">
-            <button type="button" class="active" data-slide="0" aria-label="Slide 1"></button>
-            <button type="button" data-slide="1" aria-label="Slide 2"></button>
-            <button type="button" data-slide="2" aria-label="Slide 3"></button>
+        <nav class="nav" id="nav">
+          <ul>
+            <li class="nav-item">
+              <a href="#">ABOUT</a>
+              <div class="nav-dropdown">
+                <ul>
+                  <li><a href="#">The Company</a></li>
+                  <li><a href="#">Our Vision</a></li>
+                  <li><a href="#">Corporate Philosophy</a></li>
+                  <li><a href="#">Global Footprint</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a href="#">PRODUCT &amp; SERVICE</a>
+              <div class="nav-dropdown">
+                <ul>
+                  <li><a href="#">Product Development</a></li>
+                  <li><a href="#">Manufacturing</a></li>
+                  <li><a href="#">Service</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a href="#">INVESTORS</a>
+              <div class="nav-dropdown">
+                <ul>
+                  <li><a href="#">Company Profile</a></li>
+                  <li><a href="#">Corporate Governance</a></li>
+                  <li><a href="#">Financial Information</a></li>
+                  <li><a href="#">Annual Reports</a></li>
+                  <li><a href="#">Shareholder Services</a></li>
+                  <li><a href="#">Material Information &amp; Activities</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a href="#">SUSTAINABILITY</a>
+              <div class="nav-dropdown">
+                <ul>
+                  <li><a href="#">Sustainable Operations</a></li>
+                  <li><a href="#">Corporate Governance</a></li>
+                  <li><a href="#">Value Innovation</a></li>
+                  <li><a href="#">Environmental Protection</a></li>
+                  <li><a href="#">Social Inclusion</a></li>
+                  <li><a href="#">Download the Sustainability Report</a></li>
+                  <li><a href="#">Certificates</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a href="#">CAREERS</a>
+              <div class="nav-dropdown">
+                <ul>
+                  <li><a href="#">Learning &amp; Development</a></li>
+                  <li><a href="#">Employee Benifits</a></li>
+                  <li><a href="#">Join PEGATRON</a></li>
+                  <li><a href="#">Contact HR</a></li>
+                  <li><a href="#">Recruitment Events</a></li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+          <div class="nav-lang">
+            <button type="button" class="nav-lang-btn active">EN</button>
+            <button type="button" class="nav-lang-btn">繁中</button>
           </div>
-        </div>
+        </nav>
 
-        <a href="#" class="tile tile-card tile-server">
-          <img class="tile-img" src="assets/home-bg-server.png" alt="Server">
-          <video class="tile-video" muted loop playsinline preload="metadata"><source src="assets/home-video2.mp4" type="video/mp4"></video>
-          <span class="tile-label">Server</span>
-        </a>
-
-        <a href="#" class="tile tile-card tile-5g">
-          <img class="tile-img" src="assets/home-bg-5G.jpg" alt="5G">
-          <video class="tile-video" muted loop playsinline preload="metadata"><source src="assets/home-video3.mp4" type="video/mp4"></video>
-          <span class="tile-label">5G</span>
-        </a>
-
-        <div class="gallery-stack">
-          <a href="#" class="tile tile-card">
-            <img class="tile-img" src="assets/home-bg-IOT.jpg" alt="IOT &amp; Smart application">
-            <video class="tile-video" muted loop playsinline preload="metadata"><source src="assets/home-video4.mp4" type="video/mp4"></video>
-            <span class="tile-label">IOT &amp;<br>Smart application</span>
-          </a>
-          <a href="#" class="tile tile-card">
-            <img class="tile-img" src="assets/home-bg-EV.jpg" alt="EV">
-            <video class="tile-video" muted loop playsinline preload="metadata"><source src="assets/home-video5.mp4" type="video/mp4"></video>
-            <span class="tile-label">EV</span>
-          </a>
-        </div>
-
-        <a href="#" class="tile tile-card tile-news" style="background-image:url('assets/home-bg-NEWS.jpg')">
-          <span class="tile-label">News</span>
-        </a>
-
-        <a href="#" class="tile tile-card tile-pegaverse">
-          <img class="tile-img" src="assets/home-bg-PEGAVERSE.png" alt="Pegaverse">
-          <video class="tile-video" muted loop playsinline preload="metadata"><source src="assets/home-video6.mp4" type="video/mp4"></video>
-          <span class="tile-pegaverse-logo">PEGA<em>V</em>ERSE</span>
-        </a>
-      </div>
-
-      <a href="#" class="navigate-link">Navigate the future <span class="arrow">›</span></a>
-    </div>
-  </section>
-
-  <section class="section impact" id="impact" data-nav-theme="dark">
-    <div class="impact-content">
-
-      <div class="impact-tiles">
-        <div class="impact-row">
-          <a href="#" class="tile tile-esg" style="background-image:url('assets/impact-esg.png')">
-            <span class="tile-title">ESG <span class="arrow">→</span></span>
-          </a>
-          <a href="#" class="tile tile-global" style="background-image:url('assets/impact-global.png')">
-            <button type="button" class="tile-zoom" aria-label="View global footprint">
+        <div class="header-tools">
+          <div class="search-tool">
+            <button
+              class="icon-btn search-btn"
+              id="searchBtn"
+              aria-label="Search"
+              aria-expanded="false"
+              aria-controls="searchOverlay"
+            >
               <i class="ri-search-line"></i>
             </button>
-            <span class="tile-title">GLOBAL<br>FOOTPRINT</span>
-          </a>
+          </div>
+
+          <div class="lang-tool">
+            <button class="lang-btn" id="langBtn" aria-expanded="false">
+              <i class="ri-global-line"></i>
+              EN
+              <i class="ri-arrow-down-s-line chevron"></i>
+            </button>
+            <ul class="lang-menu" id="langMenu">
+              <li><button type="button" class="active">EN</button></li>
+              <li><button type="button">繁中</button></li>
+            </ul>
+          </div>
+
+          <button class="menu-btn" id="menuBtn" aria-label="Menu" aria-expanded="false">
+            <span></span><span></span>
+          </button>
         </div>
-        <a href="#" class="tile tile-careers" style="background-image:url('assets/impact-careers.jpg')">
-          <span class="tile-title">CAREERS</span>
-        </a>
       </div>
+    </header>
 
-      <footer class="footer">
-        <div class="footer-columns">
-          <div class="footer-col">
-            <h3>ABOUT<i class="ri-arrow-down-s-line footer-col-chevron"></i></h3>
-            <ul>
-              <li><a href="#">The Company</a></li>
-              <li><a href="#">Our Vision</a></li>
-              <li><a href="#">Corporate Philosophy</a></li>
-              <li><a href="#">Global Footprint</a></li>
-            </ul>
-          </div>
-          <div class="footer-col">
-            <h3>PRODUCT &amp; SERVICE<i class="ri-arrow-down-s-line footer-col-chevron"></i></h3>
-            <ul>
-              <li><a href="#">Product Development</a></li>
-              <li><a href="#">Manufacturing</a></li>
-              <li><a href="#">Service</a></li>
-            </ul>
-          </div>
-          <div class="footer-col">
-            <h3>INVESTORS<i class="ri-arrow-down-s-line footer-col-chevron"></i></h3>
-            <ul>
-              <li><a href="#">Company Profile</a></li>
-              <li><a href="#">Corporate Governance</a></li>
-              <li><a href="#">Financial Information</a></li>
-              <li><a href="#">Annual Reports</a></li>
-              <li><a href="#">Shareholder Services</a></li>
-              <li><a href="#">Material Information &amp; Activities</a></li>
-            </ul>
-          </div>
-          <div class="footer-col">
-            <h3>SUSTAINABILITY<i class="ri-arrow-down-s-line footer-col-chevron"></i></h3>
-            <ul>
-              <li><a href="#">Sustainable Operations</a></li>
-              <li><a href="#">Corporate Governance</a></li>
-              <li><a href="#">Value Innovation</a></li>
-              <li><a href="#">Environmental Protection</a></li>
-              <li><a href="#">Social Inclusion</a></li>
-              <li><a href="#">Download the Sustainability Report</a></li>
-              <li><a href="#">Certificates</a></li>
-            </ul>
-          </div>
-          <div class="footer-col">
-            <h3>CAREERS<i class="ri-arrow-down-s-line footer-col-chevron"></i></h3>
-            <ul>
-              <li><a href="#">Learning &amp; Development</a></li>
-              <li><a href="#">Employee Benifits</a></li>
-              <li><a href="#">Join PEGATRON</a></li>
-              <li><a href="#">Contact HR</a></li>
-              <li><a href="#">Recruitment Events</a></li>
-            </ul>
-          </div>
-          <div class="footer-col footer-brands">
-            <h3>Our Brands</h3>
-            <a href="#" class="brand-link">PEGATRON 5G<span class="arrow">▸</span></a>
-            <a href="#" class="brand-link">PEGATRON SVR</a>
-          </div>
-        </div>
-
-        <div class="footer-bottom">
-          <p>© PEGATRON Corporation. All rights reserved</p>
-          <div class="footer-social">
-            <a href="#" aria-label="LinkedIn"><i class="ri-linkedin-fill"></i></a>
-            <a href="#" aria-label="Instagram"><i class="ri-instagram-line"></i></a>
-            <a href="#" aria-label="YouTube"><i class="ri-youtube-fill"></i></a>
-          </div>
-          <div class="footer-links">
-            <a href="#">Contact Us</a>
-            <a href="#">Privacy &amp; Cookies Policy</a>
-            <a href="#">Cookie Settings</a>
-          </div>
-        </div>
-      </footer>
-
+    <div class="search-overlay" id="searchOverlay" aria-hidden="true">
+      <form class="search-overlay-bar" id="searchOverlayForm">
+        <i class="ri-search-line search-overlay-icon"></i>
+        <input
+          type="text"
+          class="search-overlay-input"
+          id="searchOverlayInput"
+          placeholder="Search PEGATRON"
+          aria-label="Search keyword"
+          autocomplete="off"
+        />
+        <button type="button" class="search-overlay-close" id="searchOverlayClose" aria-label="Close search">
+          <i class="ri-close-line"></i>
+        </button>
+      </form>
     </div>
-  </section>
 
-</main>
+    <nav class="side-nav" id="sideNav" aria-label="Section navigation">
+      <ul>
+        <span class="side-nav-indicator" aria-hidden="true">
+          <span class="side-nav-indicator-label"></span>
+          <span class="side-nav-indicator-dot"></span>
+        </span>
+        <li data-target="intro" class="active"><span class="side-nav-label">Intro</span><span class="dot"></span></li>
+        <li data-target="home"><span class="side-nav-label">Home</span><span class="dot"></span></li>
+        <li data-target="impact"><span class="side-nav-label">Impact</span><span class="dot"></span></li>
+      </ul>
+    </nav>
 
-<script src="js/main.js"></script>
-</body>
+    <main class="snap-container" id="snapContainer">
+      <section class="section intro" id="intro" data-nav-theme="light"></section>
+
+      <section class="section home" id="home" data-nav-theme="light">
+        <div class="home-content">
+          <div class="gallery">
+            <div class="tile tile-slider" id="videoSlider">
+              <video class="slide active" autoplay muted loop playsinline data-index="0">
+                <source src="assets/home-video-main1.mp4" type="video/mp4" />
+              </video>
+              <video class="slide" muted loop playsinline data-index="1">
+                <source src="assets/home-video-main2.mp4" type="video/mp4" />
+              </video>
+              <video class="slide" muted loop playsinline data-index="2">
+                <source src="assets/home-video-main3.mp4" type="video/mp4" />
+              </video>
+              <div class="slider-dots">
+                <button type="button" class="active" data-slide="0" aria-label="Slide 1"></button>
+                <button type="button" data-slide="1" aria-label="Slide 2"></button>
+                <button type="button" data-slide="2" aria-label="Slide 3"></button>
+              </div>
+            </div>
+
+            <a href="#" class="tile tile-card tile-server">
+              <img class="tile-img" src="assets/home-bg-server.png" alt="Server" />
+              <video class="tile-video" muted loop playsinline preload="metadata">
+                <source src="assets/home-video2.mp4" type="video/mp4" />
+              </video>
+              <span class="tile-label">Server</span>
+            </a>
+
+            <a href="#" class="tile tile-card tile-5g">
+              <img class="tile-img" src="assets/home-bg-5G.jpg" alt="5G" />
+              <video class="tile-video" muted loop playsinline preload="metadata">
+                <source src="assets/home-video3.mp4" type="video/mp4" />
+              </video>
+              <span class="tile-label">5G</span>
+            </a>
+
+            <div class="gallery-stack">
+              <a href="#" class="tile tile-card">
+                <img class="tile-img" src="assets/home-bg-IOT.jpg" alt="IOT &amp; Smart application" />
+                <video class="tile-video" muted loop playsinline preload="metadata">
+                  <source src="assets/home-video4.mp4" type="video/mp4" />
+                </video>
+                <span class="tile-label">IOT &amp;<br />Smart application</span>
+              </a>
+              <a href="#" class="tile tile-card">
+                <img class="tile-img" src="assets/home-bg-EV.jpg" alt="EV" />
+                <video class="tile-video" muted loop playsinline preload="metadata">
+                  <source src="assets/home-video5.mp4" type="video/mp4" />
+                </video>
+                <span class="tile-label">EV</span>
+              </a>
+            </div>
+
+            <a
+              href="#"
+              class="tile tile-card tile-news"
+              style="background-image: url(&quot;assets/home-bg-NEWS.jpg&quot;)"
+            >
+              <span class="tile-label">News</span>
+            </a>
+
+            <a href="#" class="tile tile-card tile-pegaverse">
+              <img class="tile-img" src="assets/home-bg-PEGAVERSE.png" alt="Pegaverse" />
+              <video class="tile-video" muted loop playsinline preload="metadata">
+                <source src="assets/home-video6.mp4" type="video/mp4" />
+              </video>
+              <span class="tile-pegaverse-logo">PEGA<em>V</em>ERSE</span>
+            </a>
+          </div>
+
+          <a href="#" class="navigate-link">Navigate the future <span class="arrow">›</span></a>
+        </div>
+      </section>
+
+      <section class="section impact" id="impact" data-nav-theme="dark">
+        <div class="impact-content">
+          <h2 class="impact-heading">We strive to fulfill our duties as a corporate citizen in protecting Earth.</h2>
+
+          <div class="impact-tiles">
+            <div class="impact-row">
+              <a href="#" class="tile tile-esg" style="background-image: url(&quot;assets/impact-esg.png&quot;)">
+                <span class="tile-title">ESG <span class="arrow">→</span></span>
+              </a>
+              <a href="#" class="tile tile-global" style="background-image: url(&quot;assets/impact-global.png&quot;)">
+                <button type="button" class="tile-zoom" aria-label="View global footprint">
+                  <i class="ri-search-line"></i>
+                </button>
+                <span class="tile-title">GLOBAL<br />FOOTPRINT</span>
+              </a>
+            </div>
+            <a href="#" class="tile tile-careers" style="background-image: url(&quot;assets/impact-careers.jpg&quot;)">
+              <span class="tile-title">CAREERS</span>
+            </a>
+          </div>
+
+          <footer class="footer">
+            <div class="footer-columns">
+              <div class="footer-col">
+                <h3>ABOUT<i class="ri-arrow-down-s-line footer-col-chevron"></i></h3>
+                <ul>
+                  <li><a href="#">The Company</a></li>
+                  <li><a href="#">Our Vision</a></li>
+                  <li><a href="#">Corporate Philosophy</a></li>
+                  <li><a href="#">Global Footprint</a></li>
+                </ul>
+              </div>
+              <div class="footer-col">
+                <h3>PRODUCT &amp; SERVICE<i class="ri-arrow-down-s-line footer-col-chevron"></i></h3>
+                <ul>
+                  <li><a href="#">Product Development</a></li>
+                  <li><a href="#">Manufacturing</a></li>
+                  <li><a href="#">Service</a></li>
+                </ul>
+              </div>
+              <div class="footer-col">
+                <h3>INVESTORS<i class="ri-arrow-down-s-line footer-col-chevron"></i></h3>
+                <ul>
+                  <li><a href="#">Company Profile</a></li>
+                  <li><a href="#">Corporate Governance</a></li>
+                  <li><a href="#">Financial Information</a></li>
+                  <li><a href="#">Annual Reports</a></li>
+                  <!-- <li><a href="#">Shareholder Services</a></li>
+              <li><a href="#">Material Information &amp; Activities</a></li> -->
+                </ul>
+              </div>
+              <div class="footer-col">
+                <h3>SUSTAINABILITY<i class="ri-arrow-down-s-line footer-col-chevron"></i></h3>
+                <ul>
+                  <li><a href="#">Sustainable Operations</a></li>
+                  <li><a href="#">Corporate Governance</a></li>
+                  <li><a href="#">Value Innovation</a></li>
+                  <!-- <li><a href="#">Environmental Protection</a></li>
+                  <li><a href="#">Social Inclusion</a></li>
+              <li><a href="#">Download the Sustainability Report</a></li>
+              <li><a href="#">Certificates</a></li> -->
+                </ul>
+              </div>
+              <div class="footer-col">
+                <h3>CAREERS<i class="ri-arrow-down-s-line footer-col-chevron"></i></h3>
+                <ul>
+                  <li><a href="#">Learning &amp; Development</a></li>
+                  <li><a href="#">Employee Benifits</a></li>
+                  <li><a href="#">Join PEGATRON</a></li>
+                  <!-- <li><a href="#">Contact HR</a></li>
+                  <li><a href="#">Recruitment Events</a></li> -->
+                </ul>
+              </div>
+              <div class="footer-col footer-brands">
+                <h3>Our Brands</h3>
+                <a href="#" class="brand-link">PEGATRON 5G<span class="arrow">▸</span></a>
+                <a href="#" class="brand-link">PEGATRON SVR</a>
+              </div>
+            </div>
+
+            <div class="footer-bottom">
+              <p>© PEGATRON Corporation. All rights reserved</p>
+              <div class="footer-social">
+                <a href="#" aria-label="LinkedIn"><i class="ri-linkedin-fill"></i></a>
+                <a href="#" aria-label="Instagram"><i class="ri-instagram-line"></i></a>
+                <a href="#" aria-label="YouTube"><i class="ri-youtube-fill"></i></a>
+              </div>
+              <div class="footer-links">
+                <a href="#">Contact Us</a>
+                <a href="#">Privacy &amp; Cookies Policy</a>
+                <a href="#">Cookie Settings</a>
+              </div>
+            </div>
+          </footer>
+        </div>
+      </section>
+    </main>
+
+    <script src="js/main.js"></script>
+  </body>
 </html>

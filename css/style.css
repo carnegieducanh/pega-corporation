@@ -163,6 +163,10 @@ body.theme-dark .logo-dark {
   gap: 40px;
 }
 
+.nav-item {
+  position: relative;
+}
+
 .nav a {
   font-family: var(--font-heading);
   font-size: 14.5px;
@@ -178,6 +182,71 @@ body.theme-dark .logo-dark {
 .nav a:hover {
   opacity: 0.75;
   border-color: currentColor;
+}
+
+/* ---- desktop nav dropdown ---- */
+@media (min-width: 1025px) {
+  .nav-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    padding-top: 18px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    transition:
+      opacity 0.25s ease,
+      transform 0.25s ease,
+      visibility 0.25s ease;
+    pointer-events: none;
+    z-index: 10;
+  }
+
+  .nav-item:last-child .nav-dropdown {
+    left: auto;
+    right: 0;
+  }
+
+  .nav-item:hover .nav-dropdown,
+  .nav-item:focus-within .nav-dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .nav-dropdown ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    min-width: 260px;
+    padding: 10px 0;
+    border-radius: 16px;
+    background: rgba(76, 101, 114, 0.55);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow:
+      0 20px 40px rgba(0, 0, 0, 0.25),
+      inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  }
+
+  .nav-dropdown a {
+    display: block;
+    padding: 8px 24px;
+    font-family: var(--font-body);
+    font-size: 14.5px;
+    font-weight: 400;
+    letter-spacing: 0;
+    color: var(--white);
+    white-space: nowrap;
+    border-bottom: none;
+  }
+
+  .nav-dropdown a:hover {
+    opacity: 1;
+    background: rgba(255, 255, 255, 0.1);
+    border-color: transparent;
+  }
 }
 
 .header-tools {
@@ -202,37 +271,93 @@ body.theme-dark .logo-dark {
   align-items: center;
 }
 
-.search-form {
-  position: absolute;
-  right: 40px;
-  top: 50%;
-  transform: translateY(-50%) scaleX(0);
-  transform-origin: right center;
+/* ---------- Full-viewport search overlay ---------- */
+.search-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 95;
+  display: flex;
+  flex-direction: column;
+  padding: calc(var(--header-h) + 24px) var(--side-gap) 60px;
+  background: rgba(76, 101, 114, 0.55);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  color: var(--white);
   opacity: 0;
+  visibility: hidden;
+  transform: translateY(-16px);
   transition:
-    transform 0.25s ease,
-    opacity 0.25s ease;
-  pointer-events: none;
+    opacity 0.3s ease,
+    transform 0.3s ease,
+    visibility 0.3s ease;
 }
 
-.search-tool.open .search-form {
-  transform: translateY(-50%) scaleX(1);
+.search-overlay.open {
   opacity: 1;
-  pointer-events: auto;
+  visibility: visible;
+  transform: translateY(0);
 }
 
-.search-form input {
-  width: 200px;
-  padding: 8px 12px;
-  border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  background: rgba(0, 0, 0, 0.25);
-  color: inherit;
-  font-size: 13px;
+.search-overlay-bar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
 }
 
-.search-form input::placeholder {
-  color: rgba(255, 255, 255, 0.6);
+.search-overlay-icon {
+  font-size: 22px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.search-overlay-input {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  background: none;
+  outline: none;
+  font-family: var(--font-heading);
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--white);
+}
+
+.search-overlay-input::placeholder {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.search-overlay-close {
+  flex-shrink: 0;
+  background: none;
+  border: none;
+  color: var(--white);
+  font-size: 26px;
+  display: flex;
+  align-items: center;
+  padding: 6px;
+}
+
+body.search-open {
+  overflow: hidden;
+}
+
+@media (max-width: 1024px) {
+  .search-overlay-input {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 768px) {
+  .search-overlay {
+    padding-top: calc(var(--header-h) + 16px);
+  }
+  .search-overlay-input {
+    font-size: 18px;
+  }
 }
 
 .lang-tool {
@@ -344,15 +469,6 @@ body.theme-dark .header {
 body.theme-dark .lang-btn {
   border-color: rgba(14, 43, 48, 0.4);
 }
-body.theme-dark .search-form input {
-  border-color: rgba(14, 43, 48, 0.3);
-  background: rgba(255, 255, 255, 0.5);
-  color: var(--ink);
-}
-body.theme-dark .search-form input::placeholder {
-  color: rgba(14, 43, 48, 0.5);
-}
-
 /* ---------- Side section nav ---------- */
 .side-nav {
   position: fixed;
@@ -758,6 +874,10 @@ body.theme-dark .side-nav {
   padding: 40px var(--side-gap) 0;
 }
 
+.impact-heading {
+  display: none;
+}
+
 .impact-tiles {
   flex: 1;
   display: flex;
@@ -845,6 +965,10 @@ body.theme-dark .side-nav {
   font-weight: 700;
   letter-spacing: 0.5px;
   margin: 0 0 16px;
+}
+
+.footer-col-chevron {
+  display: none;
 }
 
 .footer-col ul {
@@ -1014,6 +1138,18 @@ body.theme-dark .side-nav {
     grid-column: 2;
     grid-row: 4;
   }
+  .impact-heading {
+    display: block;
+    margin: 0 0 28px;
+    font-family: var(--font-heading);
+    font-size: 24px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    line-height: 1.3;
+    max-width: 640px;
+  }
+
   .impact-row {
     height: auto;
   }
@@ -1074,6 +1210,9 @@ body.theme-dark .side-nav {
   .nav a {
     display: block;
     padding: 12px 0;
+  }
+  .nav-dropdown {
+    display: none;
   }
   body.nav-open .nav {
     height: calc(100vh - var(--header-h) - 100px);
@@ -1145,7 +1284,7 @@ body.theme-dark .side-nav {
 /* ---------- Footer tabs (iPad) ---------- */
 @media (min-width: 769px) and (max-width: 1024px) {
   .footer-columns {
-    /* display: grid; */
+    display: grid;
     grid-template-columns: auto 1fr;
     column-gap: 48px;
     row-gap: 16px;
@@ -1160,6 +1299,10 @@ body.theme-dark .side-nav {
     opacity: 0.75;
     cursor: pointer;
     white-space: nowrap;
+  }
+  .footer-col-chevron {
+    display: inline-block;
+    margin-left: 4px;
   }
   .footer-col.active h3 {
     opacity: 1;
@@ -1206,6 +1349,10 @@ body.theme-dark .side-nav {
   }
 
   .side-nav {
+    display: none;
+  }
+
+  .impact-heading {
     display: none;
   }
 
@@ -1372,6 +1519,7 @@ body.theme-dark .side-nav {
     cursor: pointer;
   }
   .footer-col-chevron {
+    display: inline-block;
     font-size: 20px;
     transition: transform 0.25s ease;
   }
