@@ -4,14 +4,24 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>PEGATRON Corporation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
+<video class="bg-video" id="bgVideo" autoplay muted loop playsinline poster="assets/home-bg-banner.jpg">
+  <source src="assets/introl-video.mp4" type="video/mp4">
+</video>
+
 <header class="header" id="header">
   <div class="header-inner">
-    <a href="#intro" class="logo">PEGATRON</a>
+    <a href="#intro" class="logo">
+      <img src="assets/Logo_light.png" alt="PEGATRON" class="logo-light">
+      <img src="assets/Logo_dark.png" alt="PEGATRON" class="logo-dark">
+    </a>
 
     <nav class="nav" id="nav">
       <ul>
@@ -63,10 +73,6 @@
 <main class="snap-container" id="snapContainer">
 
   <section class="section intro" id="intro" data-nav-theme="light">
-    <video class="intro-video" autoplay muted loop playsinline poster="assets/home-bg-banner.jpg">
-      <source src="assets/introl-video.mp4" type="video/mp4">
-    </video>
-    <div class="intro-overlay"></div>
     <div class="intro-content">
       <h1>Innovative mindset,<br>striving for excellence.</h1>
     </div>
