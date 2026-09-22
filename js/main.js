@@ -1,17 +1,29 @@
 document.addEventListener("DOMContentLoaded", function () {
   /* ---- mobile: split footer into its own full-page section ---- */
-  if (window.matchMedia("(max-width: 768px)").matches) {
+  var mobileFooterQuery = window.matchMedia("(max-width: 768px)");
+
+  function splitFooterOut() {
     var impactSection = document.getElementById("impact");
     var footerEl = document.querySelector(".footer");
-    if (impactSection && footerEl) {
-      var footerSection = document.createElement("section");
-      footerSection.className = "section footer-section";
-      footerSection.id = "footer";
-      footerSection.dataset.navTheme = "dark";
-      footerSection.appendChild(footerEl);
-      impactSection.insertAdjacentElement("afterend", footerSection);
-    }
+    if (!impactSection || !footerEl || !impactSection.contains(footerEl)) return;
+    var footerSection = document.createElement("section");
+    footerSection.className = "section footer-section";
+    footerSection.id = "footer";
+    footerSection.dataset.navTheme = "dark";
+    footerSection.appendChild(footerEl);
+    impactSection.insertAdjacentElement("afterend", footerSection);
   }
+
+  function mergeFooterIn() {
+    var footerSection = document.getElementById("footer");
+    if (!footerSection) return;
+    var footerEl = footerSection.querySelector(".footer");
+    var impactContent = document.querySelector("#impact .impact-content");
+    if (footerEl && impactContent) impactContent.appendChild(footerEl);
+    footerSection.remove();
+  }
+
+  if (mobileFooterQuery.matches) splitFooterOut();
 
   /* ---- search toggle ---- */
   var searchTool = document.querySelector(".search-tool");
@@ -131,6 +143,26 @@ document.addEventListener("DOMContentLoaded", function () {
 
   positionSections(currentIndex);
   setActiveUI(currentIndex);
+
+  /* ---- keep footer split/merge in sync when the viewport crosses the mobile breakpoint ---- */
+  mobileFooterQuery.addEventListener("change", function (e) {
+    var activeId = sectionEls[currentIndex] ? sectionEls[currentIndex].id : null;
+
+    if (e.matches) {
+      splitFooterOut();
+    } else {
+      mergeFooterIn();
+    }
+
+    sectionEls = Array.prototype.slice.call(container.querySelectorAll(".section"));
+    var restoredIndex = sectionEls.findIndex(function (s) {
+      return s.id === activeId;
+    });
+    currentIndex = restoredIndex !== -1 ? restoredIndex : Math.min(currentIndex, sectionEls.length - 1);
+
+    positionSections(currentIndex);
+    setActiveUI(currentIndex);
+  });
 
   function atTop(el) {
     return el.scrollTop <= 0;

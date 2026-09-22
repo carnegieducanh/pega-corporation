@@ -764,14 +764,14 @@ body.theme-dark .side-nav {
   flex-direction: column;
   justify-content: center;
   gap: 16px;
-  margin-bottom: 24px;
+  margin-bottom: 0;
   padding-right: 96px;
 }
 .impact-row {
   display: flex;
   gap: 16px;
-  height: 22vh;
-  min-height: 160px;
+  height: 16vh;
+  min-height: 140px;
 }
 
 .tile-esg {
@@ -781,8 +781,9 @@ body.theme-dark .side-nav {
   flex: 1;
 }
 .tile-careers {
-  height: 20vh;
-  min-height: 150px;
+  height: 14vh;
+  min-height: 130px;
+  background-position: center 25%;
 }
 
 .tile-title {
@@ -921,6 +922,50 @@ body.theme-dark .side-nav {
 .footer-links a:hover {
   opacity: 1;
   text-decoration: underline;
+}
+
+/* ---------- Short-viewport desktop (14" laptops etc.) ---------- */
+@media (min-width: 1201px) and (max-height: 900px) {
+  .home-content {
+    padding: calc(var(--header-h) + 24px) var(--side-gap) 32px;
+  }
+  .gallery {
+    height: 46vh;
+    min-height: 320px;
+  }
+  .navigate-link {
+    margin-top: 18px;
+  }
+
+  .impact-content {
+    padding-top: 24px;
+  }
+  .impact-tiles {
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+  .impact-row {
+    height: 13vh;
+    min-height: 108px;
+  }
+  .tile-careers {
+    height: 11vh;
+    min-height: 96px;
+  }
+
+  .footer {
+    padding-top: 28px;
+  }
+  .footer-columns {
+    gap: 28px;
+    padding-bottom: 18px;
+  }
+  .footer-col ul {
+    gap: 6px;
+  }
+  .footer-bottom {
+    padding: 14px 0;
+  }
 }
 
 /* ---------- Tablet ---------- */
