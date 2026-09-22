@@ -15,9 +15,10 @@ document.addEventListener("DOMContentLoaded", function () {
     var open = langTool.classList.toggle("open");
     langBtn.setAttribute("aria-expanded", open);
   });
-  document.querySelectorAll(".lang-menu button").forEach(function (btn) {
+  var langButtons = document.querySelectorAll(".lang-menu button, .nav-lang-btn");
+  langButtons.forEach(function (btn) {
     btn.addEventListener("click", function () {
-      document.querySelectorAll(".lang-menu button").forEach(function (b) {
+      langButtons.forEach(function (b) {
         b.classList.remove("active");
       });
       btn.classList.add("active");
@@ -242,6 +243,22 @@ document.addEventListener("DOMContentLoaded", function () {
     dots.forEach(function (dot, index) {
       dot.addEventListener("click", function () {
         goToSlide(index);
+      });
+    });
+  }
+
+  /* ---- footer condensed tabs (iPad) ---- */
+  var footerCols = document.querySelectorAll(".footer-columns > .footer-col:not(.footer-brands)");
+  if (footerCols.length) {
+    footerCols[0].classList.add("active");
+    footerCols.forEach(function (col) {
+      var heading = col.querySelector("h3");
+      if (!heading) return;
+      heading.addEventListener("click", function () {
+        footerCols.forEach(function (c) {
+          c.classList.remove("active");
+        });
+        col.classList.add("active");
       });
     });
   }
