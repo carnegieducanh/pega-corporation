@@ -1291,60 +1291,26 @@ body.theme-dark .side-nav {
   }
 }
 
-/* ---------- Footer tabs (iPad) ---------- */
+/* ---------- Intro (iPad) ---------- */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .intro-content {
+    align-items: center;
+    padding: 0 var(--side-gap);
+  }
+}
+
+/* ---------- Footer columns (iPad) ---------- */
 @media (min-width: 769px) and (max-width: 1024px) {
   .footer-columns {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    column-gap: 48px;
-    row-gap: 16px;
+    flex-wrap: nowrap;
+    gap: 28px;
   }
   .footer-col {
-    display: contents;
+    flex: 1 1 auto;
+    min-width: 0;
   }
   .footer-col h3 {
-    grid-column: 1;
-    margin: 0;
-    padding: 4px 0;
-    opacity: 0.75;
-    cursor: pointer;
     white-space: nowrap;
-  }
-  .footer-col-chevron {
-    display: inline-block;
-    margin-left: 4px;
-  }
-  .footer-col.active h3 {
-    opacity: 1;
-    text-decoration: underline;
-  }
-  .footer-col ul {
-    grid-column: 2;
-    display: none;
-    align-self: start;
-  }
-  .footer-col.active ul {
-    display: flex;
-  }
-  .footer-col:nth-child(1) h3,
-  .footer-col:nth-child(1) ul {
-    grid-row: 1;
-  }
-  .footer-col:nth-child(2) h3,
-  .footer-col:nth-child(2) ul {
-    grid-row: 2;
-  }
-  .footer-col:nth-child(3) h3,
-  .footer-col:nth-child(3) ul {
-    grid-row: 3;
-  }
-  .footer-col:nth-child(4) h3,
-  .footer-col:nth-child(4) ul {
-    grid-row: 4;
-  }
-  .footer-col:nth-child(5) h3,
-  .footer-col:nth-child(5) ul {
-    grid-row: 5;
   }
   .footer-brands {
     display: none;

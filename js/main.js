@@ -331,22 +331,9 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  /* ---- footer condensed tabs (iPad + mobile accordion) ---- */
+  /* ---- footer accordion (mobile) ---- */
   var footerCols = document.querySelectorAll(".footer-columns > .footer-col:not(.footer-brands)");
   if (footerCols.length) {
-    var footerTabsQuery = window.matchMedia("(min-width: 769px) and (max-width: 1024px)");
-
-    function ensureFooterTabDefault() {
-      if (!footerTabsQuery.matches) return;
-      var hasActive = Array.prototype.some.call(footerCols, function (c) {
-        return c.classList.contains("active");
-      });
-      if (!hasActive) footerCols[0].classList.add("active");
-    }
-
-    ensureFooterTabDefault();
-    footerTabsQuery.addEventListener("change", ensureFooterTabDefault);
-
     footerCols.forEach(function (col) {
       var heading = col.querySelector("h3");
       if (!heading) return;
