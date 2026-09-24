@@ -175,6 +175,13 @@ document.addEventListener("DOMContentLoaded", function () {
   positionSections(currentIndex);
   setActiveUI(currentIndex);
 
+  // enable slide transitions only after the initial layout has been painted
+  window.requestAnimationFrame(function () {
+    window.requestAnimationFrame(function () {
+      container.classList.add("is-ready");
+    });
+  });
+
   /* ---- keep footer split/merge in sync when the viewport crosses the mobile breakpoint ---- */
   mobileFooterQuery.addEventListener("change", function (e) {
     var activeId = sectionEls[currentIndex] ? sectionEls[currentIndex].id : null;
